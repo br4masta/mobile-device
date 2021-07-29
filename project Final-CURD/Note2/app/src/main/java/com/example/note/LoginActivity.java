@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
 
         TextView tvCreateAccount = (TextView)findViewById(R.id.tvCreateAccount);
 
-        tvCreateAccount.setText(fromHtml("I don't have account yet. " +
+        tvCreateAccount.setText(fromHtml("Belum punya akun. " +
                 "</font><font color='#3b5998'>create one</font>"));
         tvCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,10 +49,10 @@ public class LoginActivity extends AppCompatActivity {
 
                 Boolean res = dbHelper.checkUser(username,password);
                 if(res == true){
-                    Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 }else {
-                    Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Login Gagal", Toast.LENGTH_SHORT).show();
                 }
             }
         });

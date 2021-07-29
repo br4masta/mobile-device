@@ -35,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         TextView tvRegister = (TextView)findViewById(R.id.tvRegister);
 
-        tvRegister.setText(fromHtml("Back to " +
+        tvRegister.setText(fromHtml("Kembali ke " +
                 "</font><font color='#3b5998'>Login</font>"));
 
         tvRegister.setOnClickListener(new View.OnClickListener() {
@@ -56,15 +56,15 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                 if (!password.equals(conPassword)){
-                    Toast.makeText(RegisterActivity.this, "Password not match", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Password Tidak sama", Toast.LENGTH_SHORT).show();
                 }else if (password.equals("") || username.equals("")){
-                    Toast.makeText(RegisterActivity.this, "Username or Password cannot be empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Username or Password Tidak boleh kosong", Toast.LENGTH_SHORT).show();
                 }else {
                     values.put(DBHelper.row_username, username);
                     values.put(DBHelper.row_password, password);
                     dbHelper.insertData(values);
 
-                    Toast.makeText(RegisterActivity.this, "Register successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Regristrasi Berhasil", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
