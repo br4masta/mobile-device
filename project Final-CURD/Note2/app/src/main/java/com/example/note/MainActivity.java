@@ -37,7 +37,9 @@ public class MainActivity extends AppCompatActivity { String[] daftar;
         dbcenter = new DataHelper(this); RefreshList();
     }
     public void RefreshList() {
-        SQLiteDatabase db = dbcenter.getReadableDatabase(); cursor = db.rawQuery("SELECT * FROM note", null); daftar = new String[cursor.getCount()]; cursor.moveToFirst();
+        SQLiteDatabase db = dbcenter.getReadableDatabase();
+        cursor = db.rawQuery("SELECT * FROM note", null);
+        daftar = new String[cursor.getCount()]; cursor.moveToFirst();
         for (int cc = 0; cc < cursor.getCount(); cc++) {
             cursor.moveToPosition(cc);
             daftar[cc] = cursor.getString(1).toString();
@@ -50,8 +52,8 @@ public class MainActivity extends AppCompatActivity { String[] daftar;
         public void onItemClick(AdapterView arg0, View arg1, int arg2, long arg3)
         {
             final String selection = daftar[arg2];
-            final CharSequence[] dialogitem = {"Lihat Biodata", "Update Biodata",
-                    "Hapus Biodata"};
+            final CharSequence[] dialogitem = {"Lihat note", "Update note",
+                    "Hapus note"};
             AlertDialog.Builder builder = new
                     AlertDialog.Builder(MainActivity.this);
             builder.setTitle("Pilihan");
