@@ -19,14 +19,16 @@ public class RegisterActivity extends AppCompatActivity {
 
     EditText TxUsername, TxPassword, TxConPassword;
     Button BtnRegister;
-    DBHelper dbHelper;
+    DataHelper dbcenter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        dbHelper = new DBHelper(this);
+
+        dbcenter = new DataHelper(this);
 
         TxUsername = (EditText)findViewById(R.id.txUsernameReg);
         TxPassword = (EditText)findViewById(R.id.txPasswordReg);
@@ -60,9 +62,9 @@ public class RegisterActivity extends AppCompatActivity {
                 }else if (password.equals("") || username.equals("")){
                     Toast.makeText(RegisterActivity.this, "Username or Password Tidak boleh kosong", Toast.LENGTH_SHORT).show();
                 }else {
-                    values.put(DBHelper.row_username, username);
-                    values.put(DBHelper.row_password, password);
-                    dbHelper.insertData(values);
+                    values.put(dbcenter.row_username, username);
+                    values.put(dbcenter.row_password, password);
+                    dbcenter.insertData(values);
 
                     Toast.makeText(RegisterActivity.this, "Regristrasi Berhasil", Toast.LENGTH_SHORT).show();
                     finish();

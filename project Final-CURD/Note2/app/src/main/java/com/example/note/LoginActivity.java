@@ -17,7 +17,8 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText TxUsername, TxPassword;
     Button BtnLogin;
-   DBHelper dbHelper;
+
+   DataHelper dbcenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,8 @@ public class LoginActivity extends AppCompatActivity {
         TxPassword = (EditText)findViewById(R.id.txPassword);
         BtnLogin = (Button)findViewById(R.id.btnLogin);
 
-        dbHelper = new DBHelper(this);
+//        dbHelper = new DBHelper(this);
+        dbcenter = new DataHelper(this);
 
         TextView tvCreateAccount = (TextView)findViewById(R.id.tvCreateAccount);
 
@@ -47,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                 String username = TxUsername.getText().toString().trim();
                 String password = TxPassword.getText().toString().trim();
 
-                Boolean res = dbHelper.checkUser(username,password);
+                Boolean res = dbcenter.checkUser(username,password);
                 if(res == true){
                     Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));

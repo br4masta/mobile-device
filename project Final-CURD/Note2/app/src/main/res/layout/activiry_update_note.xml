@@ -9,13 +9,11 @@
         android:layout_height="wrap_content"
         android:text="id" />
 
-    <EditText
-        android:id="@+id/editText1"
+    <TextView
+        android:id="@+id/tampilkanid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="number" />
+        android:text="isi id" />
 
     <TextView
         android:id="@+id/textView4"
