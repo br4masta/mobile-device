@@ -23,18 +23,21 @@ public class MainActivity extends AppCompatActivity { String[] daftar;
     public static MainActivity ma;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main);
+    protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
         Button btn=(Button)findViewById(R.id.button2);
 
         btn.setOnClickListener(new View.OnClickListener() { @Override
         public void onClick(View arg0) {
-            Intent inte = new Intent(MainActivity.this, TambahNote.class); Log.d("11", "kudune ora error");
+            Intent inte = new Intent(MainActivity.this, TambahNote.class);
+            Log.d("11", "tidak error");
             startActivity(inte);
         }
         });
 
         ma = this;
-        dbcenter = new DataHelper(this); RefreshList();
+        dbcenter = new DataHelper(this);
+        RefreshList();
     }
     public void RefreshList() {
         SQLiteDatabase db = dbcenter.getReadableDatabase();
@@ -63,19 +66,19 @@ public class MainActivity extends AppCompatActivity { String[] daftar;
                     switch (item) {
                         case 0:
                             Intent i = new Intent(getApplicationContext(),LihatNote.class);
-                            i.	putExtra("nama", selection); startActivity(i);
+                            i.	putExtra("catatan", selection); startActivity(i);
                             break;
 
 
                         case 1:
                             Intent in = new Intent(getApplicationContext(),UpdateNote.class);
 
-                            in.putExtra("nama", selection);
+                            in.putExtra("catatan", selection);
                             startActivity(in);
                             break;
                         case 2:
                             SQLiteDatabase db = dbcenter.getWritableDatabase();
-                            db.execSQL("delete from note where nama = '" +  selection + "'");
+                            db.execSQL("delete from note where catatan = '" +  selection + "'");
 
                             RefreshList();
                             break;
