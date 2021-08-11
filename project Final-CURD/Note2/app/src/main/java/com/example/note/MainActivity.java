@@ -25,6 +25,16 @@ public class MainActivity extends AppCompatActivity { String[] daftar;
     @Override
     protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+        Button logout=(Button)findViewById(R.id.logout);
+
+        logout.setOnClickListener(new View.OnClickListener() { @Override
+        public void onClick(View arg0) {
+            Intent inte = new Intent(MainActivity.this, LoginActivity.class);
+            Log.d("11", "tidak error");
+            startActivity(inte);
+        }
+        });
+
         Button btn=(Button)findViewById(R.id.button2);
 
         btn.setOnClickListener(new View.OnClickListener() { @Override
@@ -66,7 +76,8 @@ public class MainActivity extends AppCompatActivity { String[] daftar;
                     switch (item) {
                         case 0:
                             Intent i = new Intent(getApplicationContext(),LihatNote.class);
-                            i.	putExtra("catatan", selection); startActivity(i);
+                            i.	putExtra("catatan", selection);
+                            startActivity(i);
                             break;
 
 

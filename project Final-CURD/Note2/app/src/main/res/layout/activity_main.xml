@@ -5,10 +5,18 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="logout"
+
+        android:layout_marginHorizontal="20dp"/>
+    <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Buat" />
+        android:text="Buat"
+        />
 
     <ListView
         android:id="@+id/listView"
